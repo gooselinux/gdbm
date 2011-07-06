@@ -1,0 +1,11 @@
+diff -up gdbm-1.8.0/gdbmreorg.c.memleak gdbm-1.8.0/gdbmreorg.c
+--- gdbm-1.8.0/gdbmreorg.c.memleak	1999-05-19 02:16:06.000000000 +0200
++++ gdbm-1.8.0/gdbmreorg.c	2010-03-11 16:50:57.785781787 +0100
+@@ -203,6 +203,7 @@ gdbm_reorganize (dbf)
+   dbf->bucket_changed    = new_dbf->bucket_changed;
+   dbf->second_changed    = new_dbf->second_changed;
+       
++  free (new_dbf->name);
+   free (new_dbf);
+   free (new_name);
+ 
